@@ -2,6 +2,11 @@ theme: minima
 title: 考研英语笔记
 description: 考研英语备考经验分享
 
+# 确保 Jekyll 能处理 SCSS 文件
 sass:
-  style: compressed
   sass_dir: assets/css
+  style: compressed
+
+# 确保包含 head-custom.html (大多数主题默认支持)
+include:
+  - _includes/head-custom.html
