@@ -1,3 +1,7 @@
 theme: minima
 title: 考研英语笔记
 description: 考研英语备考经验分享
+
+sass:
+  style: compressed
+  sass_dir: assets/css
