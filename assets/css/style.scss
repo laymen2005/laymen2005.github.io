@@ -2,60 +2,70 @@
 ---
 @import "jekyll-theme-primer";
 
-/* ============================================================
-   古文注释专用样式
-   ============================================================ */
-
-.annotation {
-    /* 1. 字号缩小：在大字号正文下，0.8em 会显得更精致 */
-    font-size: 0.8em; 
-
-    /* 2. 雅致绿色：深森林绿 */
-    color: #4a7c44; 
-
-    /* 3. 字体细节 */
-    font-family: "Noto Serif SC", "SimSun", serif;
-
-    /* 4. 间距微调 */
-    margin: 0 3px;
-    
-    /* 5. 交互效果 */
-    transition: color 0.3s ease;
-    cursor: help; 
+/* 1. 彻底重置布局：取消侧边栏干扰，改为单栏居中 */
+.container-lg {
+    max-width: 900px !important; /* 宽度适中，过宽会导致阅读疲劳 */
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
 }
 
-.annotation:hover {
-    color: #2e5a27;
-    text-decoration: underline dotted;
+/* 隐藏主题默认的侧边栏（如果它影响了布局） */
+.sidebar {
+    display: none !important;
 }
 
-/* ============================================================
-   正文排版增强（已调大字号）
-   ============================================================ */
+/* 2. 主体内容样式 */
+.markdown-body {
+    font-size: 22px !important;
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
+    line-height: 2.0 !important; /* 进一步增加行间距，更具哲思感 */
+    color: #2c3e50 !important;
+    word-break: break-all;
 
-.post-content, .classic-content {
-    /* 1. 调整字体：优先使用衬线体 */
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif;
-    
-    /* 2. 核心调整：将字号提升至 22px（若觉得还小可改为 24px） */
-    font-size: 22px;
-    
-    /* 3. 调整行间距：字号变大后，行间距也要相应拉开，推荐 1.9 */
-    line-height: 1.9;
-    
-    /* 4. 字间距：微调，增加阅读的呼吸感 */
-    letter-spacing: 0.03em;
-    
-    /* 5. 段落处理 */
+    /* 正文段落：首行缩进 */
     p {
-        margin-bottom: 1.6em;
-        text-indent: 2em; /* 保持古文段落首行缩进习惯 */
+        text-indent: 2em;
+        margin-bottom: 1.8em !important;
+    }
+
+    /* 列表项调整（针对主页的文章列表） */
+    li {
+        margin-bottom: 15px !important;
+        list-style-type: none !important; /* 去掉列表小圆点，保持干净 */
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 10px;
+    }
+
+    /* 链接颜色：选用儒雅的蓝色或灰色 */
+    a {
+        color: #34495e !important;
+        text-decoration: none !important;
+    }
+    
+    a:hover {
+        color: #4a7c44 !important;
+        text-decoration: underline dotted !important;
     }
 }
 
-/* 针对移动端的适配建议（可选） */
-@media (max-width: 600px) {
-    .post-content, .classic-content {
-        font-size: 20px; /* 手机端字号略微回退，防止溢出 */
+/* 3. 古文注释样式 */
+.annotation {
+    font-size: 0.85em !important; 
+    color: #4a7c44 !important; 
+    font-family: "Noto Serif SC", "SimSun", serif !important;
+    margin: 0 4px;
+    text-indent: 0 !important; 
+    display: inline; 
+    cursor: help;
+}
+
+/* 4. 移动端适配 */
+@media (max-width: 768px) {
+    .container-lg {
+        padding: 20px 15px !important;
+    }
+    .markdown-body {
+        font-size: 20px !important;
+        line-height: 1.8 !important;
     }
 }
