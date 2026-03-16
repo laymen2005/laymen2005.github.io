@@ -2,73 +2,59 @@
 ---
 @import "jekyll-theme-primer";
 
-/* 1. 核心容器：宽度设为 1080px 以容纳分栏 */
-.container-lg {
-    max-width: 1080px !important; 
-    margin: 0 auto !important;
-    padding: 40px 20px !important;
-    float: none !important; /* 彻底取消侧边栏浮动干扰 */
-}
-
-/* 隐藏可能遮挡或导致布局崩溃的侧边栏、搜索框、SVG */
-.sidebar, .search-form, svg.octicon {
+/* 1. 隐藏页眉原本那个固定的 "考研英语笔记" */
+.page-header .project-name {
     display: none !important;
 }
 
-/* 2. 正文与整体细节 */
+/* 2. 让页眉区域变窄，保持页面的温情和紧凑感 */
+.page-header {
+    padding: 1.5rem 1rem !important;
+    background-image: none !important; /* 去掉可能的背景渐变，更纯净 */
+    background-color: #fcfcfc !important; 
+}
+
+/* 3. 核心技巧：Primer 主题其实在 HTML 里渲染了文章标题，只是可能被折叠或样式太小 */
+/* 我们强制让文章题目在正文最上方以大字号显示 */
+.main-content h1:first-of-type {
+    display: block !important;
+    font-size: 32px !important;
+    text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 40px !important;
+    color: #2c3e50;
+    font-family: "Noto Serif SC", serif !important;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+/* 4. 保持你之前的大字号正文设置 */
 .markdown-body {
     font-size: 22px !important;
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
     line-height: 1.9 !important;
-    color: #2c3e50 !important;
 
-    /* 隐藏正文前冗余显示的作者名 */
-    .post-author, p[itemprop="author"], .author {
+    /* 隐藏可能存在的重复作者标签 */
+    .post-author, .author, p[itemprop="author"] {
         display: none !important;
     }
 
-    /* 正文段落布局 */
     p {
         text-indent: 2em;
         margin-bottom: 1.8em !important;
     }
-
-    /* 列表美化：确保主页列表不消失 */
-    ul {
-        list-style: none !important;
-        padding-left: 0 !important;
-        display: block !important; /* 确保列表是可见的块状 */
-    }
-
-    li {
-        margin-bottom: 20px !important;
-        border-bottom: 1px solid #f0f0f0;
-        padding-bottom: 10px !important;
-    }
-
-    /* 链接样式 */
-    a {
-        color: #34495e !important;
-        text-decoration: none !important;
-        &:hover {
-            color: #4a7c44 !important;
-            text-decoration: underline dotted !important;
-        }
-    }
 }
 
-/* 3. 古文注释样式 */
+/* 5. 分栏布局容器（保持 1080px） */
+.container-lg {
+    max-width: 1080px !important;
+    margin: 0 auto !important;
+}
+
+/* 6. 古文注释样式 */
 .annotation {
-    font-size: 0.82em !important;
+    font-size: 0.85em !important;
     color: #4a7c44 !important;
     margin: 0 4px;
-    text-indent: 0 !important;
     display: inline;
-}
-
-/* 4. 移动端优化 */
-@media (max-width: 768px) {
-    .markdown-body {
-        font-size: 20px !important;
-    }
 }
