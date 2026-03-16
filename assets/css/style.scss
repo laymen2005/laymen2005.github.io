@@ -1,87 +1,60 @@
 ---
 ---
-/* 1. 强制重置所有主题样式，让页面变回一张白纸 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import "minima";
+
+/* 1. 修正主容器，确保不乱套 */
+.wrapper {
+    max-width: 900px !important;
+    padding: 30px 20px !important;
 }
 
-body {
-    background-color: #fff;
-    color: #333;
-    /* 使用衬线体，营造书卷气 */
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* 2. 定义核心容器：单栏居中，不再受主题侧边栏干扰 */
-.container-lg {
-    max-width: 850px !important;
-    margin: 0 auto !important;
-    padding: 60px 20px !important;
-    display: block !important;
-}
-
-/* 强制隐藏那个撑爆页面的巨大图标和无关元素 */
-footer, .sidebar, .rss-subscribe, svg {
+/* 2. 彻底解决那个巨大的 RSS 图标问题 */
+.rss-subscribe, .footer-col-rss, svg {
     display: none !important;
 }
 
-/* 3. 主页列表样式：大字号、疏朗 */
-.markdown-body {
+/* 3. 正文大字号调整 */
+.post-content, .markdown-body {
     font-size: 22px !important;
-    line-height: 1.8 !important;
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
+    line-height: 1.9 !important;
+    color: #333 !important;
 
-    /* 针对主页文章列表的调整 */
-    ul {
-        list-style: none !important;
-        margin-top: 30px !important;
-    }
-
-    li {
-        margin-bottom: 25px !important;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 10px;
-    }
-
-    /* 隐藏列表前的日期，让界面更纯净 */
-    .post-meta {
-        display: none !important;
-    }
-
-    /* 正文段落：首行缩进 */
     p {
         text-indent: 2em;
         margin-bottom: 1.6em !important;
     }
+}
 
-    a {
-        color: #2c3e50 !important;
-        text-decoration: none !important;
-        font-weight: 500;
-    }
-
-    a:hover {
-        color: #4a7c44 !important;
+/* 4. 主页文章列表美化 */
+.post-list {
+    margin-left: 0 !important;
+    list-style: none !important;
+    
+    li {
+        margin-bottom: 20px !important;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        
+        /* 隐藏主页烦人的日期 */
+        .post-meta {
+            display: none !important;
+        }
     }
 }
 
-/* 4. 古文注释样式 */
+/* 5. 古文注释 */
 .annotation {
-    font-size: 0.85em !important;
+    font-size: 0.82em !important;
     color: #4a7c44 !important;
     margin: 0 4px;
     text-indent: 0 !important;
     display: inline;
 }
 
-/* 5. 移动端优化 */
+/* 6. 移动端适配 */
 @media (max-width: 600px) {
-    .container-lg {
-        padding: 30px 15px !important;
-    }
-    .markdown-body {
+    .post-content {
         font-size: 20px !important;
     }
 }
