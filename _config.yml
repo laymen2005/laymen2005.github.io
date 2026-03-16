@@ -1,4 +1,4 @@
-theme: minima
+remote_theme: jekyll/minima
 title: 考研英语笔记
 description: 考研英语备考经验分享
 
@@ -7,6 +7,13 @@ sass:
   sass_dir: assets/css
   style: compressed
 
-# 确保包含 head-custom.html (大多数主题默认支持)
+# 确保包含 head.html (大多数主题默认支持)
 include:
-  - _includes/head-custom.html
+  - _includes/head.html
+
+header_pages:
+  - marks.md
+  - english.md
+  - about.md
+
+show_excerpts: true
