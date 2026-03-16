@@ -2,54 +2,51 @@
 ---
 @import "jekyll-theme-primer";
 
-/* 1. 彻底清除侧边栏布局干扰，改为单栏居中 */
+/* 1. 核心容器：宽度设为 1080px 以容纳分栏 */
 .container-lg {
-    max-width: 900px !important;
+    max-width: 1080px !important; 
     margin: 0 auto !important;
     padding: 40px 20px !important;
-    float: none !important;
+    float: none !important; /* 彻底取消侧边栏浮动干扰 */
 }
 
-/* 隐藏侧边栏、搜索框和多余图标 */
+/* 隐藏可能遮挡或导致布局崩溃的侧边栏、搜索框、SVG */
 .sidebar, .search-form, svg.octicon {
     display: none !important;
 }
 
-/* 2. 核心样式调整 */
+/* 2. 正文与整体细节 */
 .markdown-body {
     font-size: 22px !important;
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
     line-height: 1.9 !important;
     color: #2c3e50 !important;
 
-    /* --- 新增：强制隐藏正文前自动生成的作者名 --- */
+    /* 隐藏正文前冗余显示的作者名 */
     .post-author, p[itemprop="author"], .author {
         display: none !important;
     }
 
-    /* 正文段落：首行缩进 */
+    /* 正文段落布局 */
     p {
         text-indent: 2em;
         margin-bottom: 1.8em !important;
     }
 
-    /* 主页文章列表 */
+    /* 列表美化：确保主页列表不消失 */
     ul {
         list-style: none !important;
         padding-left: 0 !important;
+        display: block !important; /* 确保列表是可见的块状 */
     }
 
     li {
-        margin-bottom: 25px !important;
+        margin-bottom: 20px !important;
         border-bottom: 1px solid #f0f0f0;
-        padding-bottom: 15px;
-        
-        /* 隐藏主页日期 */
-        .post-meta {
-            display: none !important;
-        }
+        padding-bottom: 10px !important;
     }
 
+    /* 链接样式 */
     a {
         color: #34495e !important;
         text-decoration: none !important;
@@ -64,7 +61,6 @@
 .annotation {
     font-size: 0.82em !important;
     color: #4a7c44 !important;
-    font-family: "Noto Serif SC", "SimSun", serif !important;
     margin: 0 4px;
     text-indent: 0 !important;
     display: inline;
@@ -72,9 +68,6 @@
 
 /* 4. 移动端优化 */
 @media (max-width: 768px) {
-    .container-lg {
-        padding: 20px 15px !important;
-    }
     .markdown-body {
         font-size: 20px !important;
     }
