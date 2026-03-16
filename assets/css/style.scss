@@ -4,31 +4,36 @@
 
 /* 1. 彻底清除侧边栏布局干扰，改为单栏居中 */
 .container-lg {
-    max-width: 900px !important; /* 宽度适中，适合大字号阅读 */
+    max-width: 900px !important;
     margin: 0 auto !important;
     padding: 40px 20px !important;
-    float: none !important; /* 强制取消浮动 */
+    float: none !important;
 }
 
-/* 隐藏 Primer 默认的侧边栏、搜索框和多余的 SVG 图标 */
+/* 隐藏侧边栏、搜索框和多余图标 */
 .sidebar, .search-form, svg.octicon {
     display: none !important;
 }
 
-/* 2. 核心正文样式：大字号、温情、哲思 */
+/* 2. 核心样式调整 */
 .markdown-body {
     font-size: 22px !important;
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
     line-height: 1.9 !important;
     color: #2c3e50 !important;
 
-    /* 正文段落：首行缩进，舒朗排版 */
+    /* --- 新增：强制隐藏正文前自动生成的作者名 --- */
+    .post-author, p[itemprop="author"], .author {
+        display: none !important;
+    }
+
+    /* 正文段落：首行缩进 */
     p {
         text-indent: 2em;
         margin-bottom: 1.8em !important;
     }
 
-    /* 主页文章列表美化 */
+    /* 主页文章列表 */
     ul {
         list-style: none !important;
         padding-left: 0 !important;
@@ -38,9 +43,13 @@
         margin-bottom: 25px !important;
         border-bottom: 1px solid #f0f0f0;
         padding-bottom: 15px;
+        
+        /* 隐藏主页日期 */
+        .post-meta {
+            display: none !important;
+        }
     }
 
-    /* 标题链接颜色 */
     a {
         color: #34495e !important;
         text-decoration: none !important;
@@ -59,15 +68,14 @@
     margin: 0 4px;
     text-indent: 0 !important;
     display: inline;
-    cursor: help;
 }
 
-/* 4. 移动端特别优化 */
+/* 4. 移动端优化 */
 @media (max-width: 768px) {
     .container-lg {
         padding: 20px 15px !important;
     }
     .markdown-body {
-        font-size: 20px !important; /* 手机端稍微收敛一点 */
+        font-size: 20px !important;
     }
 }
