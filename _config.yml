@@ -1,6 +1,6 @@
 title: 考研英语笔记
 description: 考研英语备考经验分享
-remote_theme: jekyll/minima
+remote_theme: pages-themes/primer@v0.6.0
 
 # 确保 Jekyll 处理自定义样式
 sass:
