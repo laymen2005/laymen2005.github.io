@@ -63,3 +63,9 @@ header.page-header {
     padding-top: 15px;
     border-top: 1px solid #f0f0f0; /* 添加一条极淡的分割线，更显精致 */
 }
+
+.u {
+    border-bottom: 1px solid #333; /* 下划线的粗细、颜色 */
+    padding-bottom: 1px;           /* 调整下划线与文字的距离 */
+    text-decoration: none;        /* 取消默认下划线，改用 border 更可控 */
+}
