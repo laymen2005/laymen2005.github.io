@@ -2,50 +2,60 @@
 ---
 @import "jekyll-theme-primer";
 
-/* 1. 撑开容器宽度：字号大了，容器必须宽，否则会显得极其拥挤 */
-.container-lg {
-    max-width: 1080px !important; 
-    padding: 20px 40px !important;
-}
+/* ============================================================
+   古文注释专用样式
+   ============================================================ */
 
-/* 2. 修复主栏布局：防止内容乱套 */
-.markdown-body {
-    font-size: 22px !important; /* 核心字号 */
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
-    line-height: 1.85 !important;
-    color: #333 !important;
-    word-break: break-word; /* 防止长字符撑破布局 */
-
-    /* 段落缩进与呼吸感 */
-    p {
-        text-indent: 2em;
-        margin-bottom: 1.6em !important;
-    }
-
-    /* 标题微调：防止标题在大字号下显得太突兀 */
-    h1, h2, h3 {
-        text-indent: 0;
-        margin-top: 1.5em !important;
-    }
-}
-
-/* 3. 古文注释样式：保持优雅且不干扰缩进 */
 .annotation {
-    font-size: 0.82em !important; 
-    color: #4a7c44 !important; 
-    font-family: "Noto Serif SC", "SimSun", serif !important;
-    margin: 0 4px;
-    text-indent: 0 !important; 
-    display: inline; /* 改回 inline 确保随文流动不换行 */
-    cursor: help;
+    /* 1. 字号缩小：在大字号正文下，0.8em 会显得更精致 */
+    font-size: 0.8em; 
+
+    /* 2. 雅致绿色：深森林绿 */
+    color: #4a7c44; 
+
+    /* 3. 字体细节 */
+    font-family: "Noto Serif SC", "SimSun", serif;
+
+    /* 4. 间距微调 */
+    margin: 0 3px;
+    
+    /* 5. 交互效果 */
+    transition: color 0.3s ease;
+    cursor: help; 
 }
 
-/* 4. 移动端适配：防止手机上文字太大导致排版崩溃 */
-@media (max-width: 768px) {
-    .container-lg {
-        padding: 15px !important;
+.annotation:hover {
+    color: #2e5a27;
+    text-decoration: underline dotted;
+}
+
+/* ============================================================
+   正文排版增强（已调大字号）
+   ============================================================ */
+
+.post-content, .classic-content {
+    /* 1. 调整字体：优先使用衬线体 */
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif;
+    
+    /* 2. 核心调整：将字号提升至 22px（若觉得还小可改为 24px） */
+    font-size: 22px;
+    
+    /* 3. 调整行间距：字号变大后，行间距也要相应拉开，推荐 1.9 */
+    line-height: 1.9;
+    
+    /* 4. 字间距：微调，增加阅读的呼吸感 */
+    letter-spacing: 0.03em;
+    
+    /* 5. 段落处理 */
+    p {
+        margin-bottom: 1.6em;
+        text-indent: 2em; /* 保持古文段落首行缩进习惯 */
     }
-    .markdown-body {
-        font-size: 19px !important;
+}
+
+/* 针对移动端的适配建议（可选） */
+@media (max-width: 600px) {
+    .post-content, .classic-content {
+        font-size: 20px; /* 手机端字号略微回退，防止溢出 */
     }
 }
