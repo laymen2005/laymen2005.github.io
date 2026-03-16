@@ -46,3 +46,23 @@
     text-indent: 0;
     display: inline-block;
 }
+
+/* 针对正文内容的整体美化 */
+.post-content, .classic-content {
+    /* 1. 调整字体：优先使用更有质感的衬线体 */
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif;
+    
+    /* 2. 调整字号：18px 是非常舒适的阅读字号 */
+    font-size: 18px;
+    
+    /* 3. 调整行间距：1.8 到 2.0 之间会让页面显得从容不迫 */
+    line-height: 1.85;
+    
+    /* 4. 调整段落间距：让段落之间有明显的留白 */
+    p {
+        margin-bottom: 1.5em;
+    }
+
+    /* 5. 字间距：微调字间距，增加哲思感 */
+    letter-spacing: 0.02em;
+}
