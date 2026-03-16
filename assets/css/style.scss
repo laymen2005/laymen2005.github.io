@@ -3,59 +3,40 @@
 @import "jekyll-theme-primer";
 
 /* ============================================================
-   古文注释专用样式
+   全局正文样式调整（强制覆盖主题默认字号）
    ============================================================ */
-
-.annotation {
-    /* 1. 字号缩小：在大字号正文下，0.8em 会显得更精致 */
-    font-size: 0.8em; 
-
-    /* 2. 雅致绿色：深森林绿 */
-    color: #4a7c44; 
-
-    /* 3. 字体细节 */
-    font-family: "Noto Serif SC", "SimSun", serif;
-
-    /* 4. 间距微调 */
-    margin: 0 3px;
+.markdown-body {
+    /* 1. 核心调整：使用 !important 确保权重最高 */
+    font-size: 22px !important; 
     
-    /* 5. 交互效果 */
-    transition: color 0.3s ease;
-    cursor: help; 
-}
+    /* 2. 字体选择 */
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif !important;
+    
+    /* 3. 行间距 */
+    line-height: 1.9 !important;
 
-.annotation:hover {
-    color: #2e5a27;
-    text-decoration: underline dotted;
+    /* 4. 段落缩进与间距 */
+    p {
+        text-indent: 2em;
+        margin-bottom: 1.6em !important;
+    }
 }
 
 /* ============================================================
-   正文排版增强（已调大字号）
+   古文注释专用样式
    ============================================================ */
-
-.post-content, .classic-content {
-    /* 1. 调整字体：优先使用衬线体 */
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif;
-    
-    /* 2. 核心调整：将字号提升至 22px（若觉得还小可改为 24px） */
-    font-size: 22px;
-    
-    /* 3. 调整行间距：字号变大后，行间距也要相应拉开，推荐 1.9 */
-    line-height: 1.9;
-    
-    /* 4. 字间距：微调，增加阅读的呼吸感 */
-    letter-spacing: 0.03em;
-    
-    /* 5. 段落处理 */
-    p {
-        margin-bottom: 1.6em;
-        text-indent: 2em; /* 保持古文段落首行缩进习惯 */
-    }
+.annotation {
+    font-size: 0.8em !important; 
+    color: #4a7c44 !important; 
+    font-family: "Noto Serif SC", "SimSun", serif !important;
+    margin: 0 3px;
+    transition: color 0.3s ease;
+    cursor: help;
+    text-indent: 0 !important; /* 注释本身不缩进 */
+    display: inline-block;
 }
 
-/* 针对移动端的适配建议（可选） */
-@media (max-width: 600px) {
-    .post-content, .classic-content {
-        font-size: 20px; /* 手机端字号略微回退，防止溢出 */
-    }
+.annotation:hover {
+    color: #2e5a27 !important;
+    text-decoration: underline dotted !important;
 }
