@@ -50,13 +50,16 @@ header.page-header {
     display: inline;
 }
 
-/* 锁定正文区域内的最后一个段落 */
+/* 针对正文区域内的最后一个段落（通常是作者/背景简介） */
 .markdown-body p:last-of-type {
-    font-size: 18px !important;  /* 比正文的 22px 小一些 */
-    color: #666 !important;      /* 颜色稍微调浅，视觉上更有“附录”的感觉 */
-    line-height: 1.6 !important; /* 缩减行高，显得更紧凑 */
-    text-indent: 0 !important;   /* 如果你不希望简介也首行缩进，可以加这行 */
-    margin-top: 40px !important; /* 与正文拉开一点距离 */
-    border-top: 1px dashed #eee; /* 可选：加一条淡淡的虚线分割 */
-    padding-top: 20px;
+    font-size: 18px !important;    /* 缩小字号 */
+    color: #666 !important;        /* 调浅颜色，体现附录感 */
+    line-height: 1.7 !important;   /* 稍微紧凑的行高 */
+    
+    /* 核心要求：段首缩进两个当前字符的宽度 */
+    text-indent: 2em !important;   
+    
+    margin-top: 30px !important;   /* 与正文保持一定距离 */
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0; /* 添加一条极淡的分割线，更显精致 */
 }
