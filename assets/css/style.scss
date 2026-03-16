@@ -1,60 +1,73 @@
 ---
 ---
-@import "minima";
+@import "jekyll-theme-primer";
 
-/* 1. 修正主容器，确保不乱套 */
-.wrapper {
-    max-width: 900px !important;
-    padding: 30px 20px !important;
+/* 1. 彻底清除侧边栏布局干扰，改为单栏居中 */
+.container-lg {
+    max-width: 900px !important; /* 宽度适中，适合大字号阅读 */
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+    float: none !important; /* 强制取消浮动 */
 }
 
-/* 2. 彻底解决那个巨大的 RSS 图标问题 */
-.rss-subscribe, .footer-col-rss, svg {
+/* 隐藏 Primer 默认的侧边栏、搜索框和多余的 SVG 图标 */
+.sidebar, .search-form, svg.octicon {
     display: none !important;
 }
 
-/* 3. 正文大字号调整 */
-.post-content, .markdown-body {
+/* 2. 核心正文样式：大字号、温情、哲思 */
+.markdown-body {
     font-size: 22px !important;
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
     line-height: 1.9 !important;
-    color: #333 !important;
+    color: #2c3e50 !important;
 
+    /* 正文段落：首行缩进，舒朗排版 */
     p {
         text-indent: 2em;
-        margin-bottom: 1.6em !important;
+        margin-bottom: 1.8em !important;
     }
-}
 
-/* 4. 主页文章列表美化 */
-.post-list {
-    margin-left: 0 !important;
-    list-style: none !important;
-    
+    /* 主页文章列表美化 */
+    ul {
+        list-style: none !important;
+        padding-left: 0 !important;
+    }
+
     li {
-        margin-bottom: 20px !important;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 10px;
-        
-        /* 隐藏主页烦人的日期 */
-        .post-meta {
-            display: none !important;
+        margin-bottom: 25px !important;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 15px;
+    }
+
+    /* 标题链接颜色 */
+    a {
+        color: #34495e !important;
+        text-decoration: none !important;
+        &:hover {
+            color: #4a7c44 !important;
+            text-decoration: underline dotted !important;
         }
     }
 }
 
-/* 5. 古文注释 */
+/* 3. 古文注释样式 */
 .annotation {
     font-size: 0.82em !important;
     color: #4a7c44 !important;
+    font-family: "Noto Serif SC", "SimSun", serif !important;
     margin: 0 4px;
     text-indent: 0 !important;
     display: inline;
+    cursor: help;
 }
 
-/* 6. 移动端适配 */
-@media (max-width: 600px) {
-    .post-content {
-        font-size: 20px !important;
+/* 4. 移动端特别优化 */
+@media (max-width: 768px) {
+    .container-lg {
+        padding: 20px 15px !important;
+    }
+    .markdown-body {
+        font-size: 20px !important; /* 手机端稍微收敛一点 */
     }
 }
