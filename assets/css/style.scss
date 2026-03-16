@@ -1,12 +1,44 @@
----
----
+/* ============================================================
+   古文注释专用样式
+   配合 Python 脚本生成的 <span class="annotation"> 标签使用
+   ============================================================ */
 
-// 导入主题默认样式（如果你使用了远程主题）
-// @import "{{ site.theme }}";
-
-// 注释样式 - 绿色小字 (已移除斜体，增加强制优先级)
 .annotation {
-    color: #228B22 !important;      /* 森林绿，强制覆盖 */
-    font-size: 0.9em !important;    /* 比正文小 10%，强制覆盖 */
-    font-weight: normal;            /* 确保不是粗体 */
+    /* 1. 字号缩小：比正文略小，体现注解的从属感 */
+    font-size: 0.88em; 
+
+    /* 2. 雅致绿色：选用深森林绿，温情而不刺眼 */
+    color: #4a7c44; 
+
+    /* 3. 字体细节：保持衬线体，确保书卷气 */
+    font-family: "Noto Serif SC", "SimSun", serif;
+
+    /* 4. 间距微调：与正文保持微妙距离 */
+    margin: 0 2px;
+    
+    /* 5. 交互效果：鼠标悬停时略微加深，增加阅读趣味 */
+    transition: color 0.3s ease;
+    cursor: help; /* 提示读者这是注释 */
+}
+
+.annotation:hover {
+    color: #2e5a27;
+    text-decoration: underline dotted;
+}
+
+/* ============================================================
+   正文排版加固（可选，建议添加以增强整体感）
+   ============================================================ */
+
+.classic-content p {
+    /* 确保古文段落首行缩进，更符合传统阅读习惯 */
+    text-indent: 2em;
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+}
+
+/* 针对注释在缩进段落中的特殊处理：取消首行缩进影响 */
+.classic-content .annotation {
+    text-indent: 0;
+    display: inline-block;
 }
