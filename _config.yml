@@ -1,16 +1,13 @@
-remote_theme: jekyll/minima
 title: 考研英语笔记
 description: 考研英语备考经验分享
+remote_theme: jekyll/minima
 
-# 确保 Jekyll 能处理 SCSS 文件
+# 确保 Jekyll 处理自定义样式
 sass:
   sass_dir: assets/css
   style: compressed
 
-# 确保包含 head.html (大多数主题默认支持)
-include:
-  - _includes/head.html
-
+# 导航栏配置
 header_pages:
   - marks.md
   - english.md
