@@ -4,25 +4,24 @@
 
 /* ============================================================
    古文注释专用样式
-   配合 Python 脚本生成的 <span class="annotation"> 标签使用
    ============================================================ */
 
 .annotation {
-    /* 1. 字号缩小：比正文略小，体现注解的从属感 */
-    font-size: 0.88em; 
+    /* 1. 字号缩小：在大字号正文下，0.8em 会显得更精致 */
+    font-size: 0.8em; 
 
-    /* 2. 雅致绿色：选用深森林绿，温情而不刺眼 */
+    /* 2. 雅致绿色：深森林绿 */
     color: #4a7c44; 
 
-    /* 3. 字体细节：保持衬线体，确保书卷气 */
+    /* 3. 字体细节 */
     font-family: "Noto Serif SC", "SimSun", serif;
 
-    /* 4. 间距微调：与正文保持微妙距离 */
-    margin: 0 2px;
+    /* 4. 间距微调 */
+    margin: 0 3px;
     
-    /* 5. 交互效果：鼠标悬停时略微加深，增加阅读趣味 */
+    /* 5. 交互效果 */
     transition: color 0.3s ease;
-    cursor: help; /* 提示读者这是注释 */
+    cursor: help; 
 }
 
 .annotation:hover {
@@ -31,38 +30,32 @@
 }
 
 /* ============================================================
-   正文排版加固（可选，建议添加以增强整体感）
+   正文排版增强（已调大字号）
    ============================================================ */
 
-.classic-content p {
-    /* 确保古文段落首行缩进，更符合传统阅读习惯 */
-    text-indent: 2em;
-    margin-bottom: 1.5em;
-    line-height: 1.8;
-}
-
-/* 针对注释在缩进段落中的特殊处理：取消首行缩进影响 */
-.classic-content .annotation {
-    text-indent: 0;
-    display: inline-block;
-}
-
-/* 针对正文内容的整体美化 */
 .post-content, .classic-content {
-    /* 1. 调整字体：优先使用更有质感的衬线体 */
+    /* 1. 调整字体：优先使用衬线体 */
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif;
     
-    /* 2. 调整字号：18px 是非常舒适的阅读字号 */
-    font-size: 20px;
+    /* 2. 核心调整：将字号提升至 22px（若觉得还小可改为 24px） */
+    font-size: 22px;
     
-    /* 3. 调整行间距：1.8 到 2.0 之间会让页面显得从容不迫 */
-    line-height: 1.85;
+    /* 3. 调整行间距：字号变大后，行间距也要相应拉开，推荐 1.9 */
+    line-height: 1.9;
     
-    /* 4. 调整段落间距：让段落之间有明显的留白 */
+    /* 4. 字间距：微调，增加阅读的呼吸感 */
+    letter-spacing: 0.03em;
+    
+    /* 5. 段落处理 */
     p {
-        margin-bottom: 1.5em;
+        margin-bottom: 1.6em;
+        text-indent: 2em; /* 保持古文段落首行缩进习惯 */
     }
+}
 
-    /* 5. 字间距：微调字间距，增加哲思感 */
-    letter-spacing: 0.02em;
+/* 针对移动端的适配建议（可选） */
+@media (max-width: 600px) {
+    .post-content, .classic-content {
+        font-size: 20px; /* 手机端字号略微回退，防止溢出 */
+    }
 }
