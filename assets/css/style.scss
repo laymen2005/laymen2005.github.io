@@ -2,41 +2,50 @@
 ---
 @import "jekyll-theme-primer";
 
-/* ============================================================
-   全局正文样式调整（强制覆盖主题默认字号）
-   ============================================================ */
-.markdown-body {
-    /* 1. 核心调整：使用 !important 确保权重最高 */
-    font-size: 22px !important; 
-    
-    /* 2. 字体选择 */
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Georgia", serif !important;
-    
-    /* 3. 行间距 */
-    line-height: 1.9 !important;
+/* 1. 撑开容器宽度：字号大了，容器必须宽，否则会显得极其拥挤 */
+.container-lg {
+    max-width: 1080px !important; 
+    padding: 20px 40px !important;
+}
 
-    /* 4. 段落缩进与间距 */
+/* 2. 修复主栏布局：防止内容乱套 */
+.markdown-body {
+    font-size: 22px !important; /* 核心字号 */
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
+    line-height: 1.85 !important;
+    color: #333 !important;
+    word-break: break-word; /* 防止长字符撑破布局 */
+
+    /* 段落缩进与呼吸感 */
     p {
         text-indent: 2em;
         margin-bottom: 1.6em !important;
     }
+
+    /* 标题微调：防止标题在大字号下显得太突兀 */
+    h1, h2, h3 {
+        text-indent: 0;
+        margin-top: 1.5em !important;
+    }
 }
 
-/* ============================================================
-   古文注释专用样式
-   ============================================================ */
+/* 3. 古文注释样式：保持优雅且不干扰缩进 */
 .annotation {
-    font-size: 0.8em !important; 
+    font-size: 0.82em !important; 
     color: #4a7c44 !important; 
     font-family: "Noto Serif SC", "SimSun", serif !important;
-    margin: 0 3px;
-    transition: color 0.3s ease;
+    margin: 0 4px;
+    text-indent: 0 !important; 
+    display: inline; /* 改回 inline 确保随文流动不换行 */
     cursor: help;
-    text-indent: 0 !important; /* 注释本身不缩进 */
-    display: inline-block;
 }
 
-.annotation:hover {
-    color: #2e5a27 !important;
-    text-decoration: underline dotted !important;
+/* 4. 移动端适配：防止手机上文字太大导致排版崩溃 */
+@media (max-width: 768px) {
+    .container-lg {
+        padding: 15px !important;
+    }
+    .markdown-body {
+        font-size: 19px !important;
+    }
 }
