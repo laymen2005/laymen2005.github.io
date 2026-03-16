@@ -49,3 +49,14 @@ header.page-header {
     margin: 0 4px;
     display: inline;
 }
+
+/* 锁定正文区域内的最后一个段落 */
+.markdown-body p:last-of-type {
+    font-size: 18px !important;  /* 比正文的 22px 小一些 */
+    color: #666 !important;      /* 颜色稍微调浅，视觉上更有“附录”的感觉 */
+    line-height: 1.6 !important; /* 缩减行高，显得更紧凑 */
+    text-indent: 0 !important;   /* 如果你不希望简介也首行缩进，可以加这行 */
+    margin-top: 40px !important; /* 与正文拉开一点距离 */
+    border-top: 1px dashed #eee; /* 可选：加一条淡淡的虚线分割 */
+    padding-top: 20px;
+}
