@@ -1,71 +1,87 @@
 ---
 ---
-@import "jekyll-theme-primer";
-
-/* 1. 彻底重置布局：取消侧边栏干扰，改为单栏居中 */
-.container-lg {
-    max-width: 900px !important; /* 宽度适中，过宽会导致阅读疲劳 */
-    margin: 0 auto !important;
-    padding: 40px 20px !important;
+/* 1. 强制重置所有主题样式，让页面变回一张白纸 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* 隐藏主题默认的侧边栏（如果它影响了布局） */
-.sidebar {
+body {
+    background-color: #fff;
+    color: #333;
+    /* 使用衬线体，营造书卷气 */
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. 定义核心容器：单栏居中，不再受主题侧边栏干扰 */
+.container-lg {
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    padding: 60px 20px !important;
+    display: block !important;
+}
+
+/* 强制隐藏那个撑爆页面的巨大图标和无关元素 */
+footer, .sidebar, .rss-subscribe, svg {
     display: none !important;
 }
 
-/* 2. 主体内容样式 */
+/* 3. 主页列表样式：大字号、疏朗 */
 .markdown-body {
     font-size: 22px !important;
-    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
-    line-height: 2.0 !important; /* 进一步增加行间距，更具哲思感 */
-    color: #2c3e50 !important;
-    word-break: break-all;
+    line-height: 1.8 !important;
+
+    /* 针对主页文章列表的调整 */
+    ul {
+        list-style: none !important;
+        margin-top: 30px !important;
+    }
+
+    li {
+        margin-bottom: 25px !important;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    /* 隐藏列表前的日期，让界面更纯净 */
+    .post-meta {
+        display: none !important;
+    }
 
     /* 正文段落：首行缩进 */
     p {
         text-indent: 2em;
-        margin-bottom: 1.8em !important;
+        margin-bottom: 1.6em !important;
     }
 
-    /* 列表项调整（针对主页的文章列表） */
-    li {
-        margin-bottom: 15px !important;
-        list-style-type: none !important; /* 去掉列表小圆点，保持干净 */
-        border-bottom: 1px solid #f0f0f0;
-        padding-bottom: 10px;
-    }
-
-    /* 链接颜色：选用儒雅的蓝色或灰色 */
     a {
-        color: #34495e !important;
+        color: #2c3e50 !important;
         text-decoration: none !important;
+        font-weight: 500;
     }
-    
+
     a:hover {
         color: #4a7c44 !important;
-        text-decoration: underline dotted !important;
     }
 }
 
-/* 3. 古文注释样式 */
+/* 4. 古文注释样式 */
 .annotation {
-    font-size: 0.85em !important; 
-    color: #4a7c44 !important; 
-    font-family: "Noto Serif SC", "SimSun", serif !important;
+    font-size: 0.85em !important;
+    color: #4a7c44 !important;
     margin: 0 4px;
-    text-indent: 0 !important; 
-    display: inline; 
-    cursor: help;
+    text-indent: 0 !important;
+    display: inline;
 }
 
-/* 4. 移动端适配 */
-@media (max-width: 768px) {
+/* 5. 移动端优化 */
+@media (max-width: 600px) {
     .container-lg {
-        padding: 20px 15px !important;
+        padding: 30px 15px !important;
     }
     .markdown-body {
         font-size: 20px !important;
-        line-height: 1.8 !important;
     }
 }
