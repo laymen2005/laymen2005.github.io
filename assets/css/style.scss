@@ -2,57 +2,68 @@
 ---
 @import "jekyll-theme-primer";
 
-/* 1. 核心容器：保持 1080px 宽度 */
+/* 1. 核心布局 */
 .container-lg {
     max-width: 1080px !important;
     margin: 0 auto !important;
 }
 
-/* 2. 动态页眉：把“考研英语笔记”替换成文章自己的题目 */
+/* 2. 暴力替换页眉标题 */
 .page-header {
-    padding: 2rem 1rem !important;
-    background-color: #f8f9fa !important; /* 温情的浅灰色背景 */
-    background-image: none !important;
+    padding: 2.5rem 1rem !important;
     text-align: center;
+    background: #fdfdfd !important; /* 极简浅色背景 */
 
-    /* 隐藏原本的全局标题文字 "考研英语笔记" */
+    /* 隐藏原本的“考研英语笔记” */
     .project-name {
-        display: none !important;
+        font-size: 0 !important; /* 让原字消失 */
+        visibility: hidden;
     }
 
-    /* 借用原本的 project-tagline 区域来显示文章题目 */
-    /* 在 Primer 主题中，这里通常能自动抓取文章标题 */
+    /* 借用原本的 project-tagline 容器显示文章标题 */
+    /* 在 Jekyll 渲染中，这里通常承载了页面描述，但在文章页我们强制让它显示 */
     .project-tagline {
-        display: block !important;
-        font-size: 32px !important;
-        font-family: "Noto Serif SC", serif !important;
-        color: #2c3e50 !important;
-        font-weight: bold;
-        opacity: 1 !important;
-        margin-bottom: 0;
+        visibility: visible !important;
+        font-size: 0 !important; /* 先清空 */
+        
+        /* 使用伪元素把文章标题“抓”出来（如果主题支持） */
+        /* 如果不支持，我们直接在这里定义大字号显示 */
+        &::after {
+            content: " "; /* 这是一个占位符，如果下面一行生效，这里会显示 */
+            font-size: 32px !important;
+            visibility: visible !important;
+            font-family: "Noto Serif SC", serif !important;
+            color: #2c3e50 !important;
+            font-weight: bold;
+        }
     }
 }
 
-/* 3. 正文大字号与排版 */
+/* 3. 如果上面的方法由于主题限制没字，我们尝试直接在正文最上方强制“破土而出”一个标题 */
+.main-content::before {
+    /* 这一招是最后的王牌：在正文最开头直接注入一个标题 */
+    /* 注意：CSS 无法动态抓取 YAML 里的 title，但我们可以让它显示文章特有的属性 */
+    /* 如果此招不灵，说明只能通过修改一层 index.md 的 layout 配置来解决了 */
+}
+
+/* 4. 保持正文大字号排版 */
 .markdown-body {
     font-size: 22px !important;
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
     line-height: 1.9 !important;
-    color: #333 !important;
-
-    /* 隐藏正文内所有可能重复出现的作者/日期标签 */
-    .post-author, .author, p[itemprop="author"] {
+    
+    /* 隐藏所有多余的作者/日期标签 */
+    .post-author, .author, p[itemprop="author"], .post-meta {
         display: none !important;
     }
 
-    /* 段落首行缩进 */
     p {
         text-indent: 2em;
         margin-bottom: 1.8em !important;
     }
 }
 
-/* 4. 古文注释样式 */
+/* 5. 古文注释样式 */
 .annotation {
     font-size: 0.85em !important;
     color: #4a7c44 !important;
@@ -60,7 +71,7 @@
     display: inline;
 }
 
-/* 5. 隐藏侧边栏和多余图标 */
+/* 6. 隐藏侧边栏 */
 .sidebar, .search-form, svg.octicon {
     display: none !important;
 }
