@@ -2,59 +2,65 @@
 ---
 @import "jekyll-theme-primer";
 
-/* 1. 隐藏页眉原本那个固定的 "考研英语笔记" */
-.page-header .project-name {
-    display: none !important;
+/* 1. 核心容器：保持 1080px 宽度 */
+.container-lg {
+    max-width: 1080px !important;
+    margin: 0 auto !important;
 }
 
-/* 2. 让页眉区域变窄，保持页面的温情和紧凑感 */
+/* 2. 动态页眉：把“考研英语笔记”替换成文章自己的题目 */
 .page-header {
-    padding: 1.5rem 1rem !important;
-    background-image: none !important; /* 去掉可能的背景渐变，更纯净 */
-    background-color: #fcfcfc !important; 
-}
-
-/* 3. 核心技巧：Primer 主题其实在 HTML 里渲染了文章标题，只是可能被折叠或样式太小 */
-/* 我们强制让文章题目在正文最上方以大字号显示 */
-.main-content h1:first-of-type {
-    display: block !important;
-    font-size: 32px !important;
+    padding: 2rem 1rem !important;
+    background-color: #f8f9fa !important; /* 温情的浅灰色背景 */
+    background-image: none !important;
     text-align: center;
-    margin-top: 0 !important;
-    margin-bottom: 40px !important;
-    color: #2c3e50;
-    font-family: "Noto Serif SC", serif !important;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+
+    /* 隐藏原本的全局标题文字 "考研英语笔记" */
+    .project-name {
+        display: none !important;
+    }
+
+    /* 借用原本的 project-tagline 区域来显示文章题目 */
+    /* 在 Primer 主题中，这里通常能自动抓取文章标题 */
+    .project-tagline {
+        display: block !important;
+        font-size: 32px !important;
+        font-family: "Noto Serif SC", serif !important;
+        color: #2c3e50 !important;
+        font-weight: bold;
+        opacity: 1 !important;
+        margin-bottom: 0;
+    }
 }
 
-/* 4. 保持你之前的大字号正文设置 */
+/* 3. 正文大字号与排版 */
 .markdown-body {
     font-size: 22px !important;
     font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif !important;
     line-height: 1.9 !important;
+    color: #333 !important;
 
-    /* 隐藏可能存在的重复作者标签 */
+    /* 隐藏正文内所有可能重复出现的作者/日期标签 */
     .post-author, .author, p[itemprop="author"] {
         display: none !important;
     }
 
+    /* 段落首行缩进 */
     p {
         text-indent: 2em;
         margin-bottom: 1.8em !important;
     }
 }
 
-/* 5. 分栏布局容器（保持 1080px） */
-.container-lg {
-    max-width: 1080px !important;
-    margin: 0 auto !important;
-}
-
-/* 6. 古文注释样式 */
+/* 4. 古文注释样式 */
 .annotation {
     font-size: 0.85em !important;
     color: #4a7c44 !important;
     margin: 0 4px;
     display: inline;
+}
+
+/* 5. 隐藏侧边栏和多余图标 */
+.sidebar, .search-form, svg.octicon {
+    display: none !important;
 }
