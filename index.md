@@ -17,7 +17,7 @@ layout: default
   </div>
 
   <div class="column">
-    <h2 class="column-title">古文鉴赏</h2>
+    <h2 class="column-title">古文观止</h2>
     <ul class="post-list">
       {% for post in site.categories.marks %}
         <li>
