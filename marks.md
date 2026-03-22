@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "古文鉴赏"
+title: "古文观止"
 permalink: /marks/
 ---
 
