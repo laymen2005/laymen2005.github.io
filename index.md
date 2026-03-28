@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2770728604850883"
      crossorigin="anonymous"></script>
 
