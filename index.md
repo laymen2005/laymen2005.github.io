@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+<div style="text-align: right; margin-bottom: 20px;">
+  <a href="/about" style="margin-right: 20px;">关于</a>
+  <a href="/privacy">隐私政策</a>
+</div>
+<hr>
 
 <div class="main-columns">
   <div class="column">
